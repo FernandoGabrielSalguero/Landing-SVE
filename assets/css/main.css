@@ -235,7 +235,7 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 32px;
+  max-height: 49px;
   margin-right: 8px;
 }
 
@@ -961,6 +961,7 @@ section,
   align-items: center;
   height: 280px; /* Un tamaño uniforme para todos los contenedores */
   text-align: center; /* Centra el texto */
+  box-sizing: border-box; /* Considera el padding dentro de la altura */
 }
 
 .services .content .service-item .number {
@@ -977,28 +978,39 @@ section,
   align-items: center;
   width: 80px; /* Tamaño fijo del contenedor del ícono */
   height: 80px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  flex-shrink: 0; /* Asegura que el contenedor no se reduzca */
 }
 
 .services .content .service-item .service-item-icon img {
-  width: 100%; /* Escala la imagen al contenedor */
-  height: auto; /* Mantiene la proporción */
-  object-fit: contain; /* Evita que se deforme la imagen */
+  max-width: 100%; /* Ajusta dentro del contenedor */
+  max-height: 100%; /* Evita que exceda el tamaño del contenedor */
+  object-fit: contain; /* Mantén la proporción de la imagen */
+  margin: 0 auto; /* Centra horizontalmente la imagen */
   background-color: transparent; /* Fondo transparente */
 }
 
+.services .content .service-item .service-item-content {
+  flex-grow: 1; /* Permite que el contenido ocupe el espacio restante */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Mantiene la separación entre el título y el texto */
+}
+
 .services .content .service-item .service-item-content .service-heading {
-  font-size: 18px;
+  font-size: 16px; /* Ajusta el tamaño del título */
   color: var(--default-color);
   font-weight: 600;
+  margin-top: 0;
   margin-bottom: 10px;
+  line-height: 1.2; /* Controla el espacio vertical */
 }
 
 .services .content .service-item .service-item-content p {
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.4; /* Mejora la legibilidad */
   color: var(--default-color);
-  margin: 0;
+  margin: 0; /* Elimina márgenes adicionales */
 }
 
 /* Responsive fixes */
@@ -1013,7 +1025,12 @@ section,
     height: auto; /* Ajusta la altura automáticamente en pantallas pequeñas */
     padding: 15px;
   }
+
+  .services .content .service-item .service-item-content {
+    justify-content: flex-start; /* Quita la separación para pantallas pequeñas */
+  }
 }
+
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
