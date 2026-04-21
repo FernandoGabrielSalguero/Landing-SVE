@@ -981,22 +981,33 @@ section,
 }
 
 .services .content .service-item .service-item-icon {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 96px; /* Fondo fijo para que los PNG transparentes mantengan contraste */
+  width: 96px;
   height: 96px;
   padding: 8px;
   margin-bottom: 15px;
-  background-color: #ffffff;
-  border-radius: 18px;
-  box-shadow: 0 8px 18px rgba(34, 34, 33, 0.08);
   box-sizing: border-box;
   color-scheme: light;
-  flex-shrink: 0; /* Asegura que el contenedor no se reduzca */
+  flex-shrink: 0;
+}
+
+.services .content .service-item .service-item-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  display: block;
+  background: #ffffff;
+  border-radius: 0;
+  box-shadow: 0 8px 18px rgba(34, 34, 33, 0.08);
+  z-index: 0;
 }
 
 .services .content .service-item .service-item-icon img {
+  position: relative;
+  z-index: 1;
   max-width: 100%; /* Ajusta dentro del contenedor */
   max-height: 100%; /* Evita que exceda el tamaño del contenedor */
   object-fit: contain; /* Mantén la proporción de la imagen */
