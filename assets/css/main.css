@@ -984,9 +984,15 @@ section,
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80px; /* Tamaño fijo del contenedor del ícono */
-  height: 80px;
+  width: 96px; /* Fondo fijo para que los PNG transparentes mantengan contraste */
+  height: 96px;
+  padding: 8px;
   margin-bottom: 15px;
+  background-color: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 8px 18px rgba(34, 34, 33, 0.08);
+  box-sizing: border-box;
+  color-scheme: light;
   flex-shrink: 0; /* Asegura que el contenedor no se reduzca */
 }
 
@@ -995,7 +1001,6 @@ section,
   max-height: 100%; /* Evita que exceda el tamaño del contenedor */
   object-fit: contain; /* Mantén la proporción de la imagen */
   margin: 0 auto; /* Centra horizontalmente la imagen */
-  background-color: transparent; /* Fondo transparente */
 }
 
 .services .content .service-item .service-item-content {
